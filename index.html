@@ -344,65 +344,6 @@
     .envelope.open .env-flap{transform:rotateX(180deg)}
     .envelope.open .env-seal{opacity:0}
 
-    /* Choice */
-    .choice-wrap{
-      width:min(92vw,460px);
-      text-align:center;
-    }
-
-    .choice-wrap h2{
-      margin:10px 0 8px;
-      font-size:clamp(30px,8vw,44px);
-      letter-spacing:-.04em;
-    }
-
-    .choice-wrap p{
-      color:var(--muted);
-      margin:0 0 22px;
-    }
-
-    .letter-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-    }
-
-    .letter-card{
-      border:1px solid rgba(231,164,178,.28);
-      border-radius:22px;
-      padding:24px 20px;
-      background:var(--card);
-      color:#fff;
-      cursor:pointer;
-      text-align:left;
-      transition:.25s ease;
-    }
-
-    .letter-card:hover,
-    .letter-card:active{
-      transform:translateY(-3px);
-      background:#ffffff12;
-    }
-
-    .letter-icon{
-      width:48px;
-      height:48px;
-      border-radius:15px;
-      display:grid;
-      place-items:center;
-      background:rgba(231,164,178,.16);
-      font-size:24px;
-      margin-bottom:14px;
-    }
-
-    .letter-card strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:5px;
-    }
-
-    .letter-card small{color:var(--muted)}
-
     /* Reveal common */
     .reveal-wrap{
       width:min(91vw,450px);
@@ -578,7 +519,6 @@
     }
 
     @media(min-width:640px){
-      .letter-grid{grid-template-columns:1fr 1fr}
       .details{grid-template-columns:1fr 1fr}
       .venue{grid-column:1/-1}
     }
@@ -643,48 +583,6 @@
       </div>
     </section>
 
-    <!-- CHOOSE SIDE -->
-    <section class="screen" id="choiceScreen">
-      <div class="choice-wrap">
-        <div class="kicker">Choose your letter</div>
-        <h2>One invite, two sides ✉️</h2>
-        <p>Pick the letter meant for you.</p>
-
-        <div class="letter-grid">
-          <button class="letter-card" id="groomLetter">
-            <div class="letter-icon">🤵</div>
-            <strong>Mapla uudu (Groom)</strong>
-            <small>Open the groom side invite</small>
-          </button>
-
-          <button class="letter-card" id="brideLetter">
-            <div class="letter-icon">👰</div>
-            <strong>Ponnu Veedu (Bride)</strong>
-            <small>Open the bride side invite</small>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- GROOM REVEAL -->
-    <section class="screen" id="groomRevealScreen"> 
-      <div class="reveal-wrap">        
-        <div style="font-size:46px">😎</div>
-        <div class="kicker">Mapla Veedu</div>
-
-        <div class="copy-box">
-          <strong>Vanga vanga 😎</strong><br><br>
-          Enna thambi intha pakkam? Seri, vanthuta...<br>
-          Anna nu ku engagement bha 😄<br>
-          So marakama vanthudu.<br>
-          <strong>Appudiyae keezha parru 👇</strong>
-        </div>
-
-        <div class="names" id="groomRevealNames"></div>
-        <button class="primary" id="groomFullBtn">Full invitation pakkanuma✨</button>
-      </div>
-    </section>
-
     <!-- BRIDE REVEAL -->
     <section class="screen" id="brideRevealScreen">
       <div class="reveal-wrap">
@@ -695,47 +593,7 @@
         <p class="muted">
           You’ve been part of our story. We’d love you to be there when we celebrate the next chapter.
         </p>
-        <button class="primary" id="brideFullBtn">Open the full invitation ✨</button>
-      </div>
-    </section>
-
-    <!-- GROOM FULL -->
-    <section class="screen scroll-screen" id="groomFullScreen">
-      <div class="card">
-        <div class="mono" id="groomMono"></div>
-        <div class="kicker">Mapla Veedu Special</div>
-        <div class="fun-title">Super thala, ippo sambavathu-ku varuvom 😎</div>
-
-        <div class="copy-box">
-          Mela sonnala engagement nu athu details venum la<br>
-          Date um, time um, place um keezha irukku pathukonga<br>
-          <strong>Marakama vandhudu seriya😄</strong>
-        </div>
-
-        <h3 id="groomFullNames"></h3>
-        <div class="muted">Engagement celebration</div>
-
-        <div class="details">
-          <div class="detail">
-            <small>Date</small>
-            <strong id="groomDate"></strong>
-          </div>
-          <div class="detail">
-            <small>Time</small>
-            <strong id="groomTime"></strong>
-          </div>
-          <div class="detail venue">
-            <small>Venue</small>
-            <strong id="groomVenue"></strong>
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="action map" id="groomMapLink" target="_blank" rel="noopener">📍 Intha placeku vanthudu</a>
-          <button class="action coming" id="groomComing">👍 ethuku oru like podalamae friend</button>
-        </div>
-
-        <div class="footer">Pin kurippu - Mudinja va illana appudiyae odidu 😄</div>
+        <button class="primary" id="brideFullBtn">Click to open it ✨</button>
       </div>
     </section>
 
@@ -788,10 +646,7 @@
       backBtn: document.getElementById("backBtn"),
 
       introScreen: document.getElementById("introScreen"),
-      choiceScreen: document.getElementById("choiceScreen"),
-      groomRevealScreen: document.getElementById("groomRevealScreen"),
       brideRevealScreen: document.getElementById("brideRevealScreen"),
-      groomFullScreen: document.getElementById("groomFullScreen"),
       brideFullScreen: document.getElementById("brideFullScreen"),
 
       introCopy: document.getElementById("introCopy"),
@@ -800,24 +655,13 @@
       toast: document.getElementById("toast"),
       envelope: document.getElementById("envelope"),
 
-      groomLetter: document.getElementById("groomLetter"),
-      brideLetter: document.getElementById("brideLetter"),
-      groomFullBtn: document.getElementById("groomFullBtn"),
       brideFullBtn: document.getElementById("brideFullBtn"),
 
-      groomRevealNames: document.getElementById("groomRevealNames"),
       brideRevealNames: document.getElementById("brideRevealNames"),
 
-      groomMono: document.getElementById("groomMono"),
       brideMono: document.getElementById("brideMono"),
-      groomFullNames: document.getElementById("groomFullNames"),
       brideFullNames: document.getElementById("brideFullNames"),
 
-      groomDate: document.getElementById("groomDate"),
-      groomTime: document.getElementById("groomTime"),
-      groomVenue: document.getElementById("groomVenue"),
-      groomMapLink: document.getElementById("groomMapLink"),
-      groomComing: document.getElementById("groomComing"),
 
       brideDate: document.getElementById("brideDate"),
       brideTime: document.getElementById("brideTime"),
@@ -830,10 +674,7 @@
 
     const screens = [
       el.introScreen,
-      el.choiceScreen,
-      el.groomRevealScreen,
       el.brideRevealScreen,
-      el.groomFullScreen,
       el.brideFullScreen
     ];
 
@@ -842,10 +683,7 @@
 
     const screenMap = {
       intro: el.introScreen,
-      choice: el.choiceScreen,
-      groomReveal: el.groomRevealScreen,
       brideReveal: el.brideRevealScreen,
-      groomFull: el.groomFullScreen,
       brideFull: el.brideFullScreen
     };
 
@@ -853,19 +691,12 @@
       const names = `${INVITE.name1} & ${INVITE.name2}`;
       const mono = `${INVITE.name1[0]}&${INVITE.name2[0]}`;
 
-      el.groomRevealNames.textContent = names;
       el.brideRevealNames.textContent = names;
 
-      el.groomMono.textContent = mono;
       el.brideMono.textContent = mono;
 
-      el.groomFullNames.textContent = names;
       el.brideFullNames.textContent = names;
 
-      el.groomDate.textContent = INVITE.date;
-      el.groomTime.textContent = INVITE.time;
-      el.groomVenue.textContent = INVITE.venue;
-      el.groomMapLink.href = INVITE.mapsUrl;
 
       el.brideDate.textContent = INVITE.date;
       el.brideTime.textContent = INVITE.time;
@@ -945,33 +776,13 @@
 
       setTimeout(() => {
         el.envelope.classList.remove("show");
-        showScreen("choice");
+        showScreen("brideReveal");
         burst(24);
       }, 650);
     });
 
-    el.groomLetter.addEventListener("click", () => {
-      showScreen("groomReveal");
-    });
-
-    el.brideLetter.addEventListener("click", () => {
-      showScreen("brideReveal");
-    });
-
-    el.groomFullBtn.addEventListener("click", () => {
-      showScreen("groomFull");
-    });
-
     el.brideFullBtn.addEventListener("click", () => {
       showScreen("brideFull");
-    });
-
-    el.groomComing.addEventListener("click", () => {
-      if(el.groomComing.dataset.done) return;
-      el.groomComing.dataset.done = "1";
-      el.groomComing.textContent = "Nandrigal pala ❤️";
-      el.groomComing.classList.add("thanks");
-      burst(26);
     });
 
     el.brideComing.addEventListener("click", () => {
